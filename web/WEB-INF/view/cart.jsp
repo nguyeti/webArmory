@@ -1,5 +1,5 @@
 <%-- 
-    Document   : cart
+    Document   : cart.jsp
     Created on : Jan 12, 2014, 5:32:50 PM
     Author     : Timothy
 --%>
