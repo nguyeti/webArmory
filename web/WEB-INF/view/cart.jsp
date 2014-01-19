@@ -4,10 +4,6 @@
     Author     : Timothy
 --%>
 
-
-
-
-
 <div align="center">
     
     <c:choose>
