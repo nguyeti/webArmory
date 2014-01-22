@@ -21,6 +21,7 @@
             <h3><fmt:message key="empty_cart"/></h3>
         </c:otherwise>
     </c:choose>
+            
     <%-- clear cart widget --%>
     <c:if test="${!empty cart && cart.numberOfItems != 0}">
         <a href="viewCart?clear=true" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> <fmt:message key="clear"/></a>
@@ -49,9 +50,7 @@
 </div>
 <br/>
 <c:if test="${!empty cart && cart.numberOfItems != 0}">
-    
     <table class="table table-hover">
-        
         <tr class="header">
             <th><fmt:message key="product_name"/></th>
             <th><fmt:message key="price"/></th>
@@ -59,37 +58,33 @@
         </tr>
         
         <c:forEach var="cartItem" items="${cart.items}" varStatus="iter">
-            
             <c:set var="product" value="${cartItem.product}"/>
-            
-            <tr> 
-                <td>${product.name}</td>
-                <td>
-                    $ ${cartItem.total}
-                    <br>
-                    <span class="smallText">( $ ${product.price} / unit )</span>
-                    </td>
-                    
+                <tr> 
+                    <td>${product.name}</td>
                     <td>
-                        <form action="updateCart" method="post">
-                            <input type="hidden"
-                                   name="productId"
-                                   value="${product.id}">
-                            <input type="text"
-                                   maxlength="2"
-                                   size="2"
-                                   value="${cartItem.quantity}"
-                                   name="quantity"
-                                   style="margin:5px">
-                            <input type="submit"
-                                   name="submit"
-                                   value="<fmt:message key="update"/>">
-                        </form>
-                    </td>
-                </tr>
-                
+                        $ ${cartItem.total}
+                        <br>
+                        <span class="smallText">( $ ${product.price} / unit )</span>
+                        </td>
+
+                        <td>
+                            <form action="updateCart" method="post">
+                                <input type="hidden"
+                                       name="productId"
+                                       value="${product.id}">
+                                <input type="text"
+                                       maxlength="2"
+                                       size="2"
+                                       value="${cartItem.quantity}"
+                                       name="quantity"
+                                       style="margin:5px">
+                                <input type="submit"
+                                       name="submit"
+                                       value="<fmt:message key="update"/>">
+                            </form>
+                        </td>
+                    </tr>
             </c:forEach>
-            
         </table>
     <h3 align="center"><u><fmt:message key="subtotal"/>:</u> $ ${cart.subtotal}</h3>
-    </c:if>
+</c:if>
