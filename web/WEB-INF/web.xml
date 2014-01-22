@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-
     <context-param>
         <description>The relative path to products images</description>
         <param-name>productsImagePath</param-name>
@@ -10,12 +9,12 @@
         <param-name>rootImagePath</param-name>
         <param-value>img/</param-value>
     </context-param>
-        <context-param>
+    <context-param>
         <description>The delivery surcharge applied to all orders</description>
         <param-name>deliverySurcharge</param-name>
         <param-value>30.00</param-value>
     </context-param>
-<!--    <servlet>
+    <!--    <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>controller.ControllerServlet</servlet-class>
     </servlet>
@@ -30,6 +29,10 @@
         <url-pattern>/chooseLanguage</url-pattern>
  
     </servlet-mapping>-->
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>resources.messages</param-value>
+    </context-param>
     <session-config>
         <session-timeout>
             10
@@ -44,7 +47,7 @@
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
-<!--    <resource-ref>
+    <!--    <resource-ref>
         <description>Connects to database for WebArmory application</description>
         <res-ref-name>jdbc/webarmory</res-ref-name>
         <res-type>javax.sql.ConnectionPoolDataSource</res-type>

@@ -3,10 +3,13 @@
     Created on : Jan 12, 2014, 5:32:39 PM
     Author     : Timothy
 --%>         
-
-<p id="categoryTitle">
+<%-- Set session-scoped variable to track the view user is coming from.
+     This is used by the language mechanism in the Controller so that
+     users view the same page when switching between English and French. --%>
+<c:set var='view' value='/category' scope='session' />
+<!--<p id="categoryTitle">
     <span style="background-color: #f5eabe; padding: 7px;">You are looking at ${selectedCategory.name}</span>
-</p>
+</p>-->
 
 <br/>
 <ul class="nav nav-justified">
@@ -15,10 +18,10 @@
     <c:forEach var="category" items="${categories}">
         <c:choose>
             <c:when test="${category.name == selectedCategory.name}">
-                <li><a href="#">${category.name}</a></li>
+                <li><a href="#"><fmt:message key="${category.name}"/></a></li>
             </c:when>
             <c:otherwise>
-                <li> <a href="category?${category.id}">${category.name}</a></li>
+                <li> <a href="category?${category.id}"><fmt:message key="${category.name}"/></a></li>
             </c:otherwise>
         </c:choose>
     </c:forEach>
@@ -40,7 +43,7 @@
                                    name="productId"
                                    value="${product.id}">
                             <input class="btn btn-success" type="submit"
-                                   value="Add to cart &raquo;">
+                                   value="<fmt:message key="add"/> &raquo;">
                         </form>
                     </center>
                     
@@ -52,17 +55,17 @@
                         <h3 class="panel-title">
                             <a data-toggle="collapse" data-parent="#${product.name}" 
                                href="#${product.id}">
-                                <center><b>Characteristics</b></center>
+                                <center><b><fmt:message key="characteristics"/></b></center>
                             </a>
                         </h3>
                     </div>
                     <div id="${product.id}" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <li><b>Cartridge:</b> ${product.cartridge}</li>
-                            <li><b>Weight:</b> ${product.weight}</li>
-                            <li><b>Firing Range:</b> ${product.firingRange}</li>
-                            <li><b>Maker:</b> ${product.maker}</li>
-                            <li><b>Origin:</b> ${product.origin}</li>
+                            <li><b><fmt:message key="cartridge"/></b> ${product.cartridge}</li>
+                            <li><b><fmt:message key="weight"/></b> ${product.weight}</li>
+                            <li><b><fmt:message key="firing_range"/></b> ${product.firingRange}</li>
+                            <li><b><fmt:message key="maker"/></b> ${product.maker}</li>
+                            <li><b><fmt:message key="origin"/></b> ${product.origin}</li>
                             
                         </div>
                     </div>
@@ -80,7 +83,7 @@
                     </div>
                     <div id="${product.id}2" class="panel-collapse collapse">
                         <div class="panel-body">
-                            ${product.description}
+                            <fmt:message key="${product.description}"/>
                             
                         </div>
                     </div>

@@ -2,6 +2,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%-- Set language based on user's choice --%>
+<c:if test="${!empty language}">
+    <fmt:setLocale value="${language}" scope="session" />
+</c:if>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,54 +18,115 @@
         <link rel="stylesheet" type="text/css" href="css/justified-nav.css">        
     </head>
     <body>
-        <%--<sql:query var="categories" dataSource="jdbc/webarmory">
-            SELECT * FROM category 
-        </sql:query> 
-            
-        <sql:query var="categoryProducts" dataSource="jdbc/webarmory">
-            SELECT * FROM product WHERE category_id = ?
-            <sql:param value="${pageContext.request.queryString}"/>
-        </sql:query>
-        --%>
-        
         
         <div class="container">
             <div class="masthead">
                 <h3 class="text-muted" align="center" >WebArmory Store</h3>
-                <h5 class="text-muted" align="right">
-                    <%-- If 'numberOfItems' property doesn't exist, or if number of items
-                         in cart is 0, output '0', otherwise output 'numberOfItems' --%>
-                    <span>
-                        <c:choose>
-                            <c:when test="${cart.numberOfItems == null}">
-                              <span class="glyphicon glyphicon-shopping-cart"></span>  0
-                            </c:when>
-                            <c:otherwise>
-                              <span class="glyphicon glyphicon-shopping-cart"></span>  ${cart.numberOfItems}
-                            </c:otherwise>
-                        </c:choose>
+                <!--                <h5 class="text-muted" align="right">-->
+                <%-- If 'numberOfItems' property doesn't exist, or if number of items
+                     in cart is 0, output '0', otherwise output 'numberOfItems' --%>
+                <div class="row">
+                    <div class="col-lg-6 text-info">
                         
-                        <%-- Handle singular/plural forms of 'item' --%>
-                        <c:choose>
-                            <c:when test="${cart.numberOfItems == 1}">
-                                item 
-                            </c:when>
-                            <c:otherwise>
-                                items 
-                            </c:otherwise>
-                        </c:choose>
-                    </span>
+                        <span>
+                            <c:choose>
+                                <c:when test="${cart.numberOfItems == null}">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>  0
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>  ${cart.numberOfItems}
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            <%-- Handle singular/plural forms of 'item' --%>
+                            <c:choose>
+                                <c:when test="${cart.numberOfItems == 1}">
+                                    item 
+                                </c:when>
+                                <c:otherwise>
+                                    items 
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 text-info" align="right">
+                        <%-- If servlet path contains '/confirmation', do not display language toggle --%>
+                        <c:if test="${!fn:contains(pageContext.request.servletPath,'/confirmation')}">
+                            <%-- language selection widget --%>
+                            <c:choose>
+                                <%-- When user hasn't explicitly set language,
+                                     render toggle according to browser's preferred locale --%>
+                                <c:when test="${empty sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}">
+                                    <c:choose>
+                                        <c:when test="${pageContext.request.locale.language ne 'fr'}">
+                                            english
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:url var="url" value="chooseLanguage">
+                                                <c:param name="language" value="en"/>
+                                            </c:url>
+                                            <a href="${url}">english</a>
+                                        </c:otherwise>
+                                    </c:choose> |
+                                    
+                                    <c:choose>
+                                        <c:when test="${pageContext.request.locale.language eq 'fr'}">
+                                            french
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:url var="url" value="chooseLanguage">
+                                                <c:param name="language" value="fr"/>
+                                            </c:url>
+                                            <a href="${url}">french</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:when>
+                                
+                                <%-- Otherwise, render widget according to the set locale --%>
+                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] ne 'fr'}">
+                                            english
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:url var="url" value="chooseLanguage">
+                                                <c:param name="language" value="en"/>
+                                            </c:url>
+                                            <a href="${url}">english</a>
+                                        </c:otherwise>
+                                    </c:choose> |
+                                    
+                                    <c:choose>
+                                        <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'fr'}">
+                                            french
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:url var="url" value="chooseLanguage">
+                                                <c:param name="language" value="fr"/>
+                                            </c:url>
+                                            <a href="${url}">french</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:if></div>
                     
-                    <c:if test="${!empty cart && cart.numberOfItems != 0 &&
-                                  
-                                  !fn:contains(pageContext.request.servletPath,'/cart') &&
-                                  requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
-                          
-                          <a href="viewCart" data-toggle="tooltip" title="click to view the cart">
-                              View cart
-                          </a>
-                    </c:if>
-                        
+                </div>
+                <!--</h5>-->
+                
+                
+                
+                <ul class="nav nav-justified">
+                    <li><a href="index.jsp"><fmt:message key="home"/></a></li>
+                    <li><a href="category?1"><fmt:message key="category"/></a></li>
+                    <li>
+                        <a href="viewCart" data-toggle="tooltip" title="click to view the cart">
+                            <fmt:message key="view_cart"/>
+                        </a>
+                    </li>
+                    
+                    
+                    
                     <c:if test="${!empty cart && cart.numberOfItems != 0 &&
                                   
                                   !fn:contains(pageContext.request.servletPath,'/checkout') &&
@@ -68,23 +135,11 @@
                                   !fn:contains(pageContext.request.servletPath,'/cart') &&
                                   requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
                           
-                          <a href="checkout">
-                              Checkout
-                          </a>
-                    </c:if>
-                    
-                    
-                </h5>
-                
-                
-                
-                <ul class="nav nav-justified">
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="category?1">Categories</a></li>
-                    <li><a href="#">Languages</a>
-                    </li>  
+                          <li><a href="checkout">
+                                  <fmt:message key="checkout"/>
+                              </a></li>
+                          </c:if>
                 </ul>
-                
             </div>
             
             

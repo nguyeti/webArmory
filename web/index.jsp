@@ -3,12 +3,15 @@
     Created on : Jan 12, 2014, 9:14:10 PM
     Author     : Timothy
 --%>
+<%-- Set session-scoped variable to track the view user is coming from.
+     This is used by the language mechanism in the Controller so that
+     users view the same page when switching between English and French. --%>
+<c:set var='view' value='/index' scope='session' />
 <!-- Jumbotron -->
 <div class="jumbotron">
     
-    <h1>Get your weapon now!</h1>
-    <p class="lead">What are you waiting for? Buy 1 get 5 FREE!!</p>
-    <a href="category?1" class="btn btn-success">Buy now </a>
+    <h1><fmt:message key="greeting"/></h1>
+    <a href="category?1" class="btn btn-success"><fmt:message key="buy_button"/></a>
 </div>
 
 <div class="row">
@@ -17,11 +20,11 @@
         
         <div class="col-md-3">
             <div class="thumbnail">
-                <img src="${initParam.rootImagePath}${category.name}.jpg" alt="${category.name}">
+                <img src="${initParam.rootImagePath}${category.name}.jpg" alt="<fmt:message key="${category.name}"/>">
                 <div class="caption">
-                    <h2>${category.name}</h2>
-                    <p>${category.description}</p>
-                    <a href="category?${category.id}" class="btn btn-primary">Learn more &raquo;</a>
+                    <h2><fmt:message key="${category.name}"/></h2>
+                    <p><fmt:message key="${category.description}"/></p>
+                    <a href="category?${category.id}" class="btn btn-primary"><fmt:message key="learn_more"/> &raquo;</a>
                 </div>
             </div>
         </div>
