@@ -10,11 +10,8 @@
 <!--<p id="categoryTitle">
     <span style="background-color: #f5eabe; padding: 7px;">You are looking at ${selectedCategory.name}</span>
 </p>-->
-
 <br/>
 <ul class="nav nav-justified">
-    
-    
     <c:forEach var="category" items="${categories}">
         <c:choose>
             <c:when test="${category.name == selectedCategory.name}">
@@ -28,9 +25,7 @@
 </ul>
 <br/>
 <div class="row">
-    
     <c:forEach var="product" items="${categoryProducts}" varStatus="iter">
-        
         <div class="col-md-3">
             <div class="thumbnail">
                 <img src="${initParam.productsImagePath}${product.name}.jpg" alt="${product.name}"/>
@@ -46,7 +41,6 @@
                                    value="<fmt:message key="add"/> &raquo;">
                         </form>
                     </center>
-                    
                 </div>
             </div>
             <div class="panel-group" id="${product.name}">
@@ -84,12 +78,10 @@
                     <div id="${product.id}2" class="panel-collapse collapse">
                         <div class="panel-body">
                             <fmt:message key="${product.description}"/>
-                            
                         </div>
                     </div>
                 </div>
             </div> 
-            
         </div>
     </c:forEach>
 </div>
