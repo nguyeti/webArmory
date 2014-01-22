@@ -6,6 +6,7 @@
 <%-- Set session-scoped variable to track the view user is coming from.
      This is used by the language mechanism in the Controller so that
      users view the same page when switching between English and French. --%>
+
 <c:set var='view' value='/checkout' scope='session' />    
     
 <h2><fmt:message key="checkout_page"/></h2>
@@ -13,14 +14,12 @@
 <p><fmt:message key="info"/></p>
 <div class="row">
     <div class="col-lg-7">
-        
             <c:if test="${!empty orderFailureFlag}">
                 <p>We were unable to process your order. Please try again!</p>
             </c:if>
-            <c:if test="${!empty validationErrorFlag}">
                 
+            <c:if test="${!empty validationErrorFlag}">
                 <span class="errorColor"><fmt:message key="info_error"/>
-                    
                     <c:if test="${!empty nameError}">
                         <br><span><strong><fmt:message key="name"/></strong> (e.g., Bilbo Baggins)</span>
                     </c:if>
@@ -39,9 +38,7 @@
                     <c:if test="${!empty ccNumberError}">
                         <br><span><strong><fmt:message key="cb"/></strong> (e.g., 1111222233334444)</span>
                     </c:if>
-                        
                 </span>
-                    
             </c:if> 
         
         <form action="<c:url value='purchase'/>" method="post" role="form">
