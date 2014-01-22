@@ -3,9 +3,6 @@
     Created on : Jan 12, 2014, 5:33:06 PM
     Author     : Timothy
 --%>
-
-
-
     <p>
         <strong>Your order has been successfully processed and will be delivered within 24 hours.</strong>
         <br><br>
@@ -20,18 +17,15 @@
     <div>
 
         <table class="table table-bordered">
-            <tr class="header">
+            <tr>
                 <th>Order summary</th>
             </tr>
-
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Price</th>
             </tr>
-
             <c:forEach var="orderedProduct" items="${orderedProducts}" varStatus="iter">
-
                 <tr class="${((iter.index % 2) != 0) ? 'lightBlue' : 'white'}">
                     <td>${products[iter.index].name}</td>
                     <td>
@@ -41,11 +35,10 @@
                         $ ${products[iter.index].price * orderedProduct.quantity}
                     </td>
                 </tr>
-
             </c:forEach>
 
-            <tr></tr>
-
+            </table>
+            <table class="table table-bordered">
             <tr>
                 <td><strong>Delivery surcharge</strong></td>
                 <td>$ ${initParam.deliverySurcharge}</td>
@@ -62,11 +55,9 @@
                 </td>
             </tr>
         </table>
-
     </div>
 
     <div class="summaryColumn" >
-
         <table class="table table-bordered">
             <tr>
                 <th>Delivery address</th>
@@ -87,5 +78,4 @@
                 </td>
             </tr>
         </table>
-
     </div>
