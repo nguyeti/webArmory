@@ -14,21 +14,6 @@
         <param-name>deliverySurcharge</param-name>
         <param-value>30.00</param-value>
     </context-param>
-    <!--    <servlet>
-        <servlet-name>ControllerServlet</servlet-name>
-        <servlet-class>controller.ControllerServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ControllerServlet</servlet-name>
-        <url-pattern>/category</url-pattern>
-        <url-pattern>/addToCart</url-pattern>
-        <url-pattern>/viewCart</url-pattern>
-        <url-pattern>/updateCart</url-pattern>
-        <url-pattern>/checkout</url-pattern>
-        <url-pattern>/purchase</url-pattern>
-        <url-pattern>/chooseLanguage</url-pattern>
- 
-    </servlet-mapping>-->
     <context-param>
         <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
         <param-value>resources.messages</param-value>
@@ -47,11 +32,4 @@
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
-    <!--    <resource-ref>
-        <description>Connects to database for WebArmory application</description>
-        <res-ref-name>jdbc/webarmory</res-ref-name>
-        <res-type>javax.sql.ConnectionPoolDataSource</res-type>
-        <res-auth>Container</res-auth>
-        <res-sharing-scope>Shareable</res-sharing-scope>
-    </resource-ref>-->
 </web-app>
