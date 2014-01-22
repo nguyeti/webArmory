@@ -74,6 +74,10 @@ body {
     border-radius: 0 5px 5px 0;
     border-right: 0;
   }
+  
+  .errorColor{
+      color:red;
+}
 }
 
 /* Responsive: Portrait tablets and up */
@@ -86,3 +90,4 @@ body {
     padding-right: 0;
   }
 }
+
