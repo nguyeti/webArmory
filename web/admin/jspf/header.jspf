@@ -12,17 +12,6 @@
         <link rel="stylesheet" type="text/css" href="../css/justified-nav.css">   
         <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>    
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('tr.tableRow').hover(
-                    function () {
-                        $(this).addClass('selectedRow');
-                    },
-                    function () {
-                        $(this).removeClass('selectedRow');
-                    }
-                );
-             });
-        </script>
+        
     </head>
-    <body>
+  <body>

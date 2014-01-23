@@ -1,5 +1,5 @@
 <%-- 
-    Document   : index
+    Document   : index.jsp
     Created on : Jan 23, 2014, 3:11:48 PM
     Author     : Timothy
 --%>
@@ -13,8 +13,6 @@
                     <li>
                         <a href="<c:url value='logout'/>">Log out</a>
                     </li>
-                    
-                   
                 </ul>
             </div>
 

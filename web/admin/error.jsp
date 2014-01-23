@@ -1,5 +1,5 @@
 <%-- 
-    Document   : error
+    Document   : error.jsp
     Created on : Jan 23, 2014, 3:11:18 PM
     Author     : Timothy
 --%>

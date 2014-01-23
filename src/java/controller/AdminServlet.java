@@ -26,7 +26,7 @@ import session.OrderManager;
 
 /**
  *
- * @author tgiunipero
+ * @author Timothy
  */
 @WebServlet(name = "AdminServlet",
             urlPatterns = {"/admin/",
@@ -115,7 +115,7 @@ public class AdminServlet extends HttpServlet {
         if (userPath.equals("/admin/logout")) {
             session = request.getSession();
             session.invalidate();   // terminate session
-            response.sendRedirect("/WebArmory/admin/");
+            response.sendRedirect("/WebArmory/index.jsp");
             return;
         }
 
