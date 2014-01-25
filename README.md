@@ -1,6 +1,6 @@
 webArmory
 =========
-This is a e-commerce website which sell weapons.
+This is an e-commerce website which sells weapons.
 
 J2EE school project (4th year)
 Designing and developing an E-commerce application following instructions from the NetBeans E-commerce Tutorial as part of the Java EE courses final project. 
