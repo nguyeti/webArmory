@@ -3,7 +3,7 @@
 <%-- 
     Document   : testDataSource
     Created on : Jan 14, 2014, 10:38:42 AM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

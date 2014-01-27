@@ -1,7 +1,7 @@
 <%-- 
     Document   : index.jsp
     Created on : Jan 23, 2014, 3:11:48 PM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
 <div class="container">
             <div class="masthead">

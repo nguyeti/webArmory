@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 @Embeddable
 public class OrderedProductPK implements Serializable {

@@ -4,7 +4,7 @@ import entity.Product;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 public class ShoppingCartItem {
     Product product;

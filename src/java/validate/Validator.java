@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 public class Validator {
 

@@ -3,7 +3,7 @@ import entity.Product;
 import java.util.*;
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 public class ShoppingCart {
     List<ShoppingCartItem> items;

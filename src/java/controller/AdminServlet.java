@@ -20,7 +20,7 @@ import session.OrderManager;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 @WebServlet(name = "AdminServlet",
             urlPatterns = {"/admin/",

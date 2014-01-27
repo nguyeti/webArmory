@@ -1,7 +1,7 @@
 <%-- 
     Document   : confirmation
     Created on : Jan 12, 2014, 5:33:06 PM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
     <p>
         <strong>Your order has been successfully processed and will be delivered within 24 hours.</strong>

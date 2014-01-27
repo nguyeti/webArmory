@@ -1,7 +1,7 @@
 <%-- 
     Document   : error.jsp
     Created on : Jan 23, 2014, 3:11:18 PM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
 <div class="jumbotron">
     <p class="error">Invalid username or password.</p>

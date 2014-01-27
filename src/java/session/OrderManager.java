@@ -26,7 +26,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)

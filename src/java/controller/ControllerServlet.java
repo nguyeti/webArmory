@@ -22,7 +22,7 @@ import validate.Validator;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 @WebServlet(name = "Controller",
         loadOnStartup = 1,

@@ -1,7 +1,7 @@
 <%-- 
     Document   : login.jsp
     Created on : Jan 23, 2014, 3:10:48 PM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
 
 <form class="form-signin" role="form" action="<c:url value='j_security_check'/>" method=post>

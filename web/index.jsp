@@ -1,7 +1,7 @@
 <%-- 
     Document   : index.jsp
     Created on : Jan 12, 2014, 9:14:10 PM
-    Author     : Timothy
+    Author     : Timothy & Etienne
 --%>
 <%-- Set session-scoped variable to track the view user is coming from.
      This is used by the language mechanism in the Controller so that

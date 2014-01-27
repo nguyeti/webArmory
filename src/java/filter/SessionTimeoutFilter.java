@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Timothy
+ * @author Timothy & Etienne
  */
 @WebFilter(servletNames ={"Controler"})
 public class SessionTimeoutFilter implements Filter {
